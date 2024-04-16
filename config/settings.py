@@ -77,7 +77,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True  # or False if you don't use TLS
 EMAIL_HOST_USER = 'sabirovasadbek932848802@gmail.com'
 EMAIL_HOST_PASSWORD = 'wdqexuhesgqterwb'
-RECEIVER_EMAIL = 'sabirovasadbek1605@gmail.com'
+RECEIVER_EMAIL = 'support@weproautotransport.com'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
