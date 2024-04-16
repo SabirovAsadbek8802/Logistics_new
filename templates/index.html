@@ -1,0 +1,881 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block content %}
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #f6f6f6;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 80%; /* Adjust the maximum width */
+    width: 40%;
+}
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .modal-form input {
+    width: calc(100% - 20px); /* Adjust the input width */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: solid 1px black;
+    border-radius: 20px;
+}
+  
+  .modal-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .modal-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 80%;
+    }
+      .modal-content img {
+        display: none;
+      }
+  }
+  
+</style>
+<section class="hero-wrapper hero-1">
+  <div class="hero-slider-active transland-dots">
+    <div class="single-slide">
+      <div
+        class="slide-bg bg-cover wow zoomIn"
+        style="
+          background-image: url('{% static 'assets/img/slide1.jpg'%}');
+        "
+      ></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-xxl-6 col-lg-8 col-sm-10">
+            <div class="hero-contents pe-lg-3 text-white">
+              <h1
+                class="fs-lg animated"
+                data-animation-in="fadeInRight"
+                data-delay-in="0.2"
+              >
+                WePro<br><span>Autotransport</span>
+              </h1>
+              <p
+                class="pe-lg-5 mb-4 animated"
+                data-animation-in="fadeInRight"
+                data-delay-in="0.5"
+              >
+                We are committed to providing our customers with exceptional
+                service while offering our employees
+              </p>
+              <a
+                href="{% url 'contact' %}"
+                data-animation-in="fadeInRight"
+                data-delay-in="0.8"
+                class="theme-btn me-sm-4 mt-4 animated"
+                >Track your order</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="single-slide">
+      <div
+        class="slide-bg bg-cover"
+        style="background-image: url('{% static 'assets/img/how-it-works-img1.png'%}');"
+      ></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-xxl-6 col-lg-8 col-sm-10">
+            <div class="hero-contents pe-lg-3 text-white">
+              <h1
+                class="fs-lg animated"
+                data-animation-in="fadeInRight"
+                data-delay-in="0.2"
+              >
+                To all 50 <span>States</span>
+              </h1>
+              <p
+                class="pe-lg-5 mb-4"
+                data-animation-in="fadeInRight"
+                data-delay-in="0.5"
+              >
+                We are committed to providing our customers with exceptional
+                service while offering our employees
+              </p>
+              <a
+                href="{% url 'contact' %}"
+                data-animation-in="fadeInRight"
+                data-delay-in="0.8"
+                class="theme-btn me-sm-4 mt-4"
+                >Track your order</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+    <symbol
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 44 44"
+      width="44px"
+      height="44px"
+      id="circle"
+      fill="none"
+      stroke="currentColor"
+    >
+      <circle r="20" cy="22" cx="22" id="translandcircle" />
+    </symbol>
+  </svg>
+</section>
+
+<section class="about-us-wrapper section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 text-center text-lg-start">
+        <div class="about-img">
+          <img src="{% static 'assets/img/about-air.jpg'%}" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7 mt-5 mt-lg-0 ps-lg-5">
+        <div class="block-contents">
+          <div class="section-title">
+            <h5 class="textleft relative">about</h5>
+            <span>Since from 2000</span>
+            <h2>Company <span>Overview</span></h2>
+          </div>
+        </div>
+        <div class="about-info-contents">
+          <p>You can trust that WePro Auto Transport Inc. We will get your vehicle delivered safely and on-time.<br><br>
+
+              WePro Auto Transport Inc. specializes in moving automotive vehicles from one location to another. Our job responsibilities include loading each vehicle onto a specialized trailer. We handle the delivery of multiple cars during each trip. In addition to ensuring that the load is secure, we makes sure that the auto transport trailer meets safety standards and weight restrictions.<br><br>
+              
+              We are committed to providing our customers with quality service. We will work closely with you to develop the best logistics plan for your supply chain.</p>  
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} <section class="our-service-wrapper fix theme-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-9">
+        <div class="block-contents">
+          <div class="section-title">
+            <h5 class="textleft">Service</h5>
+            <span>Featured Service</span>
+            <h2>What <span>We Do</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 ps-0 col-3 text-end">
+        <div class="services-carousel-nav-prev">
+          <i class="fal fa-long-arrow-left"></i>
+        </div>
+        <div class="services-carousel-nav-next">
+          <i class="fal fa-long-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-12">
+      <div class="services-carousel-active">
+        <div class="single-service-card">
+          <div
+            class="service-banner-img bg-cover"
+            style="
+              background-image: url('{% static 'assets/img/services/air.jpg'%}');
+            "
+          ></div>
+          <div class="content">
+            <h3><a href="services-details.html">Air Freight</a></h3>
+            <p>
+              As a leader in global air freight forwarding, OIA Global excels in
+              providing tailored transportation
+            </p>
+          </div>
+        </div>
+        <div class="single-service-card">
+          <div
+            class="service-banner-img bg-cover"
+            style="
+              background-image: url('{% static 'assets/img/services/ship.jpg'%}');
+            "
+          ></div>
+          <div class="content">
+            <h3><a href="services-details.html">Ocean Freight</a></h3>
+            <p>
+              Ocean Freight plays perhaps the most vital role in most
+              transportation and supply chain solutions.
+            </p>
+          </div>
+        </div>
+        <div class="single-service-card">
+          <div
+            class="service-banner-img bg-cover"
+            style="
+              background-image: url('{% static 'assets/img/services/road.jpg'%}');
+            "
+          ></div>
+          <div class="content">
+            <h3><a href="services-details.html">Road Freight</a></h3>
+            <p>
+              Cargo are transported at some stage of their journey along the
+              world’s roads where we give you a reassuring presence.
+            </p>
+          </div>
+        </div>
+        <div class="single-service-card">
+          <div
+            class="service-banner-img bg-cover"
+            style="
+              background-image: url('{% static 'assets/img/services/warehouse.jpg'%}');
+            "
+          ></div>
+          <div class="content">
+            <h3><a href="services-details.html">Warehousing</a></h3>
+            <p>
+              Package and store your things effectively and securely to make
+              sure them in storage. best warehouse for your products.
+            </p>
+          </div>
+        </div>
+        <div class="single-service-card">
+          <div
+            class="service-banner-img bg-cover"
+            style="
+              background-image: url('{% static 'assets/img/services/drone-fright.jpg'%}');
+            "
+          ></div>
+          <div class="content">
+            <h3><a href="services-details.html">Drone Freight</a></h3>
+            <p>
+              Ship are transported at some stage of their journey along the
+              world’s roads where we give you a reassuring presence.
+            </p>
+          </div>
+        </div>
+        <div class="single-service-card">
+          <div
+            class="service-banner-img bg-cover"
+            style="
+              background-image: url('{% static 'assets/img/services/rail.jpg'%}');
+            "
+          ></div>
+          <div class="content">
+            <h3><a href="services-details.html">Continental Rail</a></h3>
+            <p>
+              Continental Rail are transported at some stage of their journey
+              along the world’s roads where we give you a presence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+
+
+
+{% comment %} <section class="our-team-wrapper section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="block-contents mb-20">
+                        <div class="section-title">
+                            <h5 class="textleft">team</h5>
+                            <span>Our Team</span>
+                            <h2>Meet Our <span>Amazing Team</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="team-member-card bg-cover" style="background-image: url('{% static 'assets/img/team/1.jpg'%}')">
+                        <div class="profile-info-card">
+                            <span>Founder</span>
+                            <h5><a href="team-details.html">Alaxis D. Dowson</a></h5>
+                            <div class="social-link">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="team-member-card bg-cover" style="background-image: url('{% static 'assets/img/team/2.jpg'%}')">
+                        <div class="profile-info-card">
+                            <span>Founder</span>
+                            <h5><a href="team-details.html">Alaxis D. Dowson</a></h5>
+                            <div class="social-link">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="team-member-card bg-cover" style="background-image: url('{% static 'assets/img/team/3.jpg'%}')">
+                        <div class="profile-info-card">
+                            <span>Founder</span>
+                            <h5><a href="team-details.html">Alaxis D. Dowson</a></h5>
+                            <div class="social-link">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="team-member-card bg-cover" style="background-image: url('{% static 'assets/img/team/4.jpg'%}')">
+                        <div class="profile-info-card">
+                            <span>Support</span>
+                            <h5><a href="team-details.html">Salman Ahmed</a></h5>
+                            <div class="social-link">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section> {% endcomment %}
+
+
+
+{% comment %} <section class="request-a-quote-section theme-bg bg-cover calculate-wrapper section-padding" style="background-image: url('{% static 'assets/img/cost-bg.jpg'%}')">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5 col-12">
+        <div class="block-contents mb-20 pr-30">
+          <div class="section-title">
+            <h5 class="textleft">quote</h5>
+            <span>Request a quote</span>
+            <h2>Instant <span>Quote</span></h2>
+            <p class="text-white">
+              You can know the Price for your Transportation in Advance. We
+              Offers intellgent concepts for road and tail and well as complex
+              special transport services
+            </p>
+          </div>
+        </div>
+        <div class="row me-xl-5 text-white">
+          <div class="col-sm-6">
+            <div class="single-request-element">
+              <div class="icon">
+                <i class="fal fa-warehouse"></i>
+              </div>
+              <h6>Warehouse</h6>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="single-request-element">
+              <div class="icon">
+                <i class="fal fa-location"></i>
+              </div>
+              <h6>Online Tracking</h6>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="single-request-element">
+              <div class="icon">
+                <i class="fal fa-headset"></i>
+              </div>
+              <h6>Support 24/7</h6>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="single-request-element">
+              <div class="icon">
+                <i class="fal fa-shield-check"></i>
+              </div>
+              <h6>Cargo Insurance</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-7 col-12">
+        <div class="request-quote-form-wrapper mt-5 mt-xl-0 ms-xl-3">
+          <h4>Personal & Shipment data</h4>
+          <div class="request-quote-form">
+            <form action="{% url 'contact' %}" method='post'>
+            {% csrf_token %}
+              <div class="row d-flex align-item-center">
+                <div class="col-sm-6 col-12">
+                  {{ form.fullname.label_tag }} {{ form.fullname }}
+                </div>
+                <div class="col-sm-6 col-12">
+                  {{ form.phone_number.label_tag }} {{ form.phone_number }}
+                </div>
+                <div class="col-sm-12 col-12">
+                  {{ form.email.label_tag }} {{ form.email }}
+                </div>
+                <div class="col-sm-6 col-12">
+                  {{ form.pickup.label_tag }} {{ form.pickup }}
+                </div>
+                <div class="col-sm-12 col-12">
+                  {{ form.delivery.label_tag }} {{ form.delivery }}
+                </div>
+                <div class="col-sm-6 col-12">
+                  {{ form.vehicle_type.label_tag }} {{ form.vehicle_type }}
+                </div>
+                <div class="col-sm-6 col-12">
+                  {{ form.transport_type.label_tag }} {{ form.transport_type }}
+                </div>
+                <div class="col-sm-12 col-12">
+                    {{ form.car_info.label_tag }} {{ form.car_info }}   
+                  </div>
+                <div class="col-sm-12">
+                  <input
+                    type="submit"
+                    class="theme-btn"
+                    value="Request a quote"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+
+<section class="funfact-countdown-wrapper fix">
+  <div class="container-fluid p-0">
+    <div class="row no-padding">
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="single-funfact-item">
+          <div class="icon">
+            <img src="{% static 'assets/img/icons/map-classic.png' %}" alt="" />
+          </div>
+          <div class="countdown">
+            <h2>8700</h2>
+            <span>All Over The World</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="single-funfact-item">
+          <div class="icon">
+            <img src="{% static 'assets/img/icons/plan.png' %}" alt="" />
+          </div>
+          <div class="countdown">
+            <h2>5644</h2>
+            <span>All Over The World</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="single-funfact-item">
+          <div class="icon">
+            <img src="{% static 'assets/img/icons/box.png' %}" alt="" />
+          </div>
+          <div class="countdown">
+            <h2>2390</h2>
+            <span>All Over The World</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="single-funfact-item">
+          <div class="icon">
+            <img src="{% static 'assets/img/icons/cup.png' %}" alt="" />
+          </div>
+          <div class="countdown">
+            <h2>1150</h2>
+            <span>All Over The World</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} <section class="testimonial-wrapper section-bg section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-12 mb-40">
+                    <div class="block-contents text-center">
+                        <div class="section-title">
+                            <h5>review</h5>
+                            <span>Testimonials</span>
+                            <h2>Client <span>Feedbacks</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-xl-4 col-12">
+                    <div class="single-testimonial-card text-center">
+                        <div class="client-img bg-cover bg-center" style="background-image: url('{% static 'assets/img/blog/author2.jpg'%}')"></div>
+                        <div class="client-info">
+                            <h4>Thomas Smith</h4>
+                            <span>CEO & Engineer</span>
+                        </div>
+                        <div class="feedback">
+                            <p>Great experience and impressive product. It was a very professional and technically competent job from the whole team.</p>
+
+                            <div class="star">
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 col-12">
+                    <div class="single-testimonial-card text-center">
+                        <div class="client-img bg-cover bg-center" style="background-image: url('{% static 'assets/img/blog/author3.jpg'%}')"></div>
+                        <div class="client-info">
+                            <h4>Ernest Smith</h4>
+                            <span>Business Man</span>
+                        </div>
+                        <div class="feedback">
+                            <p>Great experience and impressive product. It was a very professional and technically competent job from the whole team.</p>
+
+                            <div class="star">
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 col-12">
+                    <div class="single-testimonial-card text-center">
+                        <div class="client-img bg-cover bg-center" style="background-image: url('{% static 'assets/img/blog/author_img.jpg'%}')"></div>
+                        <div class="client-info">
+                            <h4>Salman Ahmed</h4>
+                            <span>Project Manager</span>
+                        </div>
+                        <div class="feedback">
+                            <p>Great experience and impressive product. It was a very professional and technically competent job from the whole team.</p>
+
+                            <div class="star">
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                                <span class="fas fa-star"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section> {% endcomment %}
+
+{% comment %} <div class="video-pop-up-wrapper section-padding bg-cover" style="background-image: url('{% static 'assets/img/full-video-bg.jpg'%}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center d-flex justify-content-center align-items-center">
+                    <div class="video-play-btn">
+                        <a href="https://www.youtube.com/watch?v=E1xkXZs0cAQ" class="popup-video play-video"><i class="fas fa-play"></i></a>                     
+                    </div>
+                </div>
+            </div>
+        </div>
+</div> {% endcomment %}
+
+{% comment %} <section class="brand-showcase-funfact-wrapper section-padding bg-contain bg-center" style="background-image: url('{% static 'assets/img/dot_map.png')">
+        <div class="container">
+            <div class="col-12 text-center mb-20 mtm-20">
+                <div class="mask-outline bg-center" style="background-image: url('{% static 'assets/img/mask-bg.jpg'%}')">
+                    <h1>20,8700</h1>
+                </div>
+                <h6 class="mt-4">All-over delivery done by our team</h6>
+            </div>
+
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-4 col-lg-3 col-12">
+                    <div class="single-brand-logo">
+                        <img src="{% static 'assets/img/brand/1.png' %}" alt="transland">
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-12">
+                    <div class="single-brand-logo">
+                        <img src="{% static 'assets/img/brand/2.png' %}" alt="transland">
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-12">
+                    <div class="single-brand-logo">
+                        <img src="{% static 'assets/img/brand/3.png' %}" alt="transland">
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-12">
+                    <div class="single-brand-logo">
+                        <img src="{% static 'assets/img/brand/4.png' %}" alt="transland">
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-12">
+                    <div class="single-brand-logo">
+                        <img src="{% static 'assets/img/brand/5.png' %}" alt="transland">
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-12">
+                    <div class="single-brand-logo">
+                        <img src="{% static 'assets/img/brand/6.png' %}" alt="transland">
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-12">
+                    <div class="single-brand-logo">
+                        <img src="{% static 'assets/img/brand/7.png' %}" alt="transland">
+                    </div>
+                </div>
+            </div>
+        </div>
+</section> {% endcomment %}
+
+<section
+  class="cta-wrapper section-padding bg-overlay bg-cover"
+  style="background-image: url('{% static 'assets/img/cta-bg.jpg'%}')"
+>
+  <div class="container">
+    <div class="col-lg-8 offset-lg-2 col-12 text-center">
+      <div class="cta-contents">
+        <h1 class="text-white mt-5 mb-4">
+          World’s Leading Contract Logistics Provider
+        </h1>
+        <a href="{% url 'contact' %}" class="theme-btn">make custom request</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="latest-blog-wrapper section-bg section-padding">
+  <div class="container">
+    <div class="block-contents mb-30">
+      <div class="section-title">
+        <h5 class="textleft">news</h5>
+        <span>News Feeds</span>
+        <h2>Blog & <span>Insights</span></h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-12">
+        <div
+          class="single-news-card bg-cover"
+          style="background-image: url('{% static 'assets/img/blog/b1.jpg'%}')"
+        >
+          <div class="contents">
+            <div class="post-cat-date d-flex align-items-center">
+              <div class="post-cat">
+                <a href="{% url 'blog' %}">Transport</a>
+                <a href="{% url 'blog' %}">Delivery</a>
+              </div>
+              <div class="post-date">June 21, 2021</div>
+            </div>
+            <h5>
+              <a href="news-details.html"
+                >Means of transportation is of the different kinds transport
+                facilities used.</a
+              >
+            </h5>
+            <div class="post-author">
+              <div
+                class="author-img bg-cover bg-center"
+                style="
+                  background-image: url('{% static 'assets/img/blog/author2.jpg'%}');
+                "
+              ></div>
+              <div class="author-info">
+                <h6>Alaxis D. Dowson</h6>
+                <span>Author</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12">
+        <div
+          class="single-news-card bg-cover"
+          style="background-image: url('{% static 'assets/img/blog/b1.jpg'%}')"
+        >
+          <div class="contents">
+            <div class="post-cat-date d-flex align-items-center">
+              <div class="post-cat">
+                <a href="{% url 'blog' %}">logistics</a>
+                <a href="{% url 'blog' %}">package</a>
+              </div>
+              <div class="post-date">December 31, 2021</div>
+            </div>
+            <h5>
+              <a href="news-details.html"
+                >Road, air and sea transport are available. Air transport is the
+                best way</a
+              >
+            </h5>
+            <div class="post-author">
+              <div
+                class="author-img bg-cover bg-center"
+                style="
+                  background-image: url('{% static 'assets/img/blog/author3.jpg'%}');
+                "
+              ></div>
+              <div class="author-info">
+                <h6>Salman Ahmed</h6>
+                <span>Author</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12">
+        <div
+          class="single-news-card bg-cover"
+          style="background-image: url('{% static 'assets/img/blog/b1.jpg'%}')"
+        >
+          <div class="contents">
+            <div class="post-cat-date d-flex align-items-center">
+              <div class="post-cat">
+                <a href="{% url 'blog' %}">Transport</a>
+                <a href="{% url 'blog' %}">Delivery</a>
+              </div>
+              <div class="post-date">May 05, 2022</div>
+            </div>
+            <h5>
+              <a href="news-details.html"
+                >Key Logistics Trends in Life Sciences 2021. 5 Benefits of
+                Working with a Broker</a
+              >
+            </h5>
+            <div class="post-author">
+              <div
+                class="author-img bg-cover bg-center"
+                style="
+                  background-image: url('{% static 'assets/img/blog/author2.jpg'%}');
+                "
+              ></div>
+              <div class="author-info">
+                <h6>Alaxis D. Dowson</h6>
+                <span>Author</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<button id="openModalBtn" class="d-none">Open Modal</button>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div style="display: flex; justify-content: center;">
+      <h4>WANT TO SEE HOW YOU<br> CAN SAVE UP TO 5% ON<br> YOUR QUOTE? ENTER<br> YOUR EMAIL & PHONE<br> NUMBER TO FIND OUT.</h4>
+      <img src="{% static 'assets/img/mers.png' %}" style="background: none; width: 50%; margin-left: 10px;">
+    </div>
+    <form method="post" id="modalForm" class="modal-form">
+    
+      {% csrf_token %}
+      {{ form_modal.email.label_tag }}
+      {{ form_modal.email }}
+      {{ form_modal.phone_number.label_tag }}
+      {{ form_modal.phone_number }}
+      <button type="submit">Send</button>    
+    </form>
+  </div>
+</div>
+
+
+<script>
+  const openModalBtn = document.getElementById('openModalBtn');
+const modal = document.getElementById('modal');
+const closeModalBtn = document.getElementsByClassName('close')[0];
+
+openModalBtn.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+closeModalBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+});
+
+{% comment %} const modalForm = document.getElementById('modalForm');
+modalForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const formData = new FormData(modalForm);
+  const email = formData.get('email');
+  const phone = formData.get('phone');
+  console.log('Email:', email);
+  console.log('Phone Number:', phone);
+  // You can add further processing or validation here
+}); {% endcomment %}
+
+document.addEventListener('DOMContentLoaded', () => {
+  modal.style.display = 'block';
+});
+</script>
+{% endblock content %}

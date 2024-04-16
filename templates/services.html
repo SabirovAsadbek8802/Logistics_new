@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div class="page-banner-wrap text-center bg-cover" style="background-image: url('{% static 'assets/img/page-banner.jpg'%}')">
+        <div class="container">
+            <div class="page-heading text-white">
+                <h1>our Services</h1>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <nav>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">services</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <section class="our-service-provide section-padding theme-bg">
+        <div class="container">
+            <div class="col-12 col-lg-12 mb-40">
+                <div class="block-contents text-center">
+                    <div class="section-title">
+                        <h5>freight</h5>
+                        <span>Our Services</span>
+                        <h2>Transland <span>Services</span></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-our-service">
+                        <div class="thumb bg-cover" style="background-image: url('{% static 'assets/img/services/air.jpg'%}')"></div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="flaticon-airplane-5"></i>
+                            </div>
+                            <h3><a href="javascript:void(0)">air freight</a></h3>
+                       
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-our-service">
+                        <div class="thumb bg-cover" style="background-image: url('{% static 'assets/img/services/ship.jpg'%}')"></div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="flaticon-ship-5"></i>
+                            </div>
+                            <h3><a href="javascript:void(0)">Ocean freight</a></h3>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-our-service">
+                        <div class="thumb bg-cover" style="background-image: url('{% static 'assets/img/services/road.jpg'%}')"></div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="flaticon-truck-2"></i>
+                            </div>
+                            <h3><a href="javascript:void(0)">Road freight</a></h3>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-our-service">
+                        <div class="thumb bg-cover" style="background-image: url('{% static 'assets/img/services/rail.jpg'%}')"></div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="flaticon-subway"></i>
+                            </div>
+                            <h3><a href="javascript:void(0)">Rail freight</a></h3>
+                    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-our-service">
+                        <div class="thumb bg-cover" style="background-image: url('{% static 'assets/img/services/bike.jpg'%}')"></div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="flaticon-food"></i>
+                            </div>
+                            <h3><a href="javascript:void(0)">Bike freight</a></h3>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-our-service">
+                        <div class="thumb bg-cover" style="background-image: url('{% static 'assets/img/services/drone-fright.jpg'%}')"></div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="flaticon-drone-2"></i>
+                            </div>
+                            <h3><a href="javascript:void(0)">Drone freight</a></h3>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+    
+    <section class="work-process-wrapper section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-12 mb-40">
+                    <div class="block-contents text-center">
+                        <div class="section-title">
+                            <h5>steps</h5>
+                            <span>Steps of Cooperation</span>
+                            <h2>How it works</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-steps-list">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-work-steps">
+                            <div class="icon">
+                                <img src="{% static 'assets/img/icons/step1.png' %}" alt="">
+                            </div>
+                            <div class="content">
+                                <h4>Quote & Reservation </h4>
+                                <p>Request a quote and make a reservation. You can do this by filling out our online form or contacting us directly at +1(424)337-6424 ..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-work-steps">
+                            <div class="icon">
+                                <img src="{% static 'assets/img/icons/step2.png' %}" alt="">
+                            </div>
+                            <div class="content">
+                                <h4>Vehicle Pick-Up </h4>
+                                <p>Once your reservation is confirmed, we will coordinate the pickup of your vehicle. Our team  drivers will arrive at the designated pickup location and load your vehicle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-work-steps">
+                            <div class="icon">
+                                <img src="{% static 'assets/img/icons/step3.png' %}" alt="">
+                            </div>
+                            <div class="content">
+                                <h4>Vehicle Delivery </h4>
+                                <p>When your vehicle reaches its destination, our team will unload it and perform another detailed inspection before releasing it to you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-work-steps">
+                            <div class="icon">
+                                <img src="{% static 'assets/img/icons/step4.png' %}" alt="">
+                            </div>
+                            <div class="content">
+                                <h4>Fast & efficient delivery</h4>
+                                <p>We're dedicated to delivering your vehicles on time, whether it's one car or a whole fleet. We ensure your vehicles arrive promptly. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-wrapper section-padding bg-overlay bg-cover" style="background-image: url('{% static 'assets/img/cta-bg.jpg' %}')">
+        <div class="container">
+            <div class="col-lg-8 offset-lg-2 col-12 text-center">
+                <div class="cta-contents">
+                    <h1 class="text-white mt-5 mb-4">World’s Leading Contract Logistics Provider</h1>
+                    <a href="{% url 'contact' %}" class="theme-btn">make custom request</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-service-solution section-bg section-padding">
+        <div class="container">
+            <div class="col-lg-8 offset-lg-2 text-center col-12">
+                <div class="section-title-2">
+                    <span>services</span>
+                    <h1>We Provide Solution</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-freight-service wow fadeInUp">
+                        <h3><a href="javascript:void(0)">Land Transport</a></h3>
+                        <p>Road transport and industry driving coordinations experience</p>
+                        <div class="checked-list right">
+                            <li>Replenishment & Picking</li>
+                            <li>Packaging & Distribution</li>
+                            <li>Warehousing Operation</li>
+                        </div>
+                        <div class="icon"><i class="flaticon-delivery-truck-1"></i></div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-freight-service wow fadeInUp" data-wow-delay=".3s">
+                        <h3><a href="javascript:void(0)">Air Freight</a></h3>
+                        <p>Air transport organization and industry driving coordinations experience</p>
+                        <div class="checked-list right">
+                            <li>General Air Freight Products</li>
+                            <li>Charter Services</li>
+                            <li>Real Time Monitoring</li>
+                        </div>
+                        <div class="icon"><i class="flaticon-airplane-5"></i></div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="single-freight-service wow fadeInUp" data-wow-delay=".6s">
+                        <h3><a href="javascript:void(0)">Ocean Freight</a></h3>
+                        <p>Ocean freight gives organization and industry excellent experience</p>
+                        <div class="checked-list right">
+                            <li>Less-than-container Load</li>
+                            <li>Full Container Load</li>
+                            <li>Intermodal Solutions</li>
+                        </div>
+                        <div class="icon"><i class="flaticon-cargo-ship-3"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
