@@ -134,9 +134,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="header-right-element">
-                        <a href="{% url 'contact' %}" class="theme-btn">Get a quote <i class="fal fa-long-arrow-right"></i></a>
-                    </div>
+                    
                 </div>
                 <div class="d-block d-lg-none col-sm-1 col-md-8 col-6">
                     <div class="mobile-nav-wrap">
@@ -153,11 +151,13 @@
                                     <li><a href="{% url 'about' %}">about</a></li>
                                     <li><a href="{% url 'services' %}">services</a></li>
                                     <li>
-                                        <a class="has-arrow" href="#">FAQ</a>
+                                        <a class="has-arrow" href="{% url 'faq' %}">FAQ</a>
                                     </li>
                                     <li><a href="{% url 'blog' %}">Blog</a></li>
                                     <li><a href="{% url 'contact' %}">Contact</a></li>
                                 </ul>
+
+                                
                             </nav>
 
                             <div class="action-bar text-white">

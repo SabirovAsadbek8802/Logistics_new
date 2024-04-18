@@ -15,11 +15,9 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     phone_number = forms.CharField(max_length=20)
     fullname = forms.CharField(max_length=255)
-    pick_up = forms.CharField(max_length=255)
-    delivery = forms.CharField(max_length=255)
+    delivery = forms.CharField(max_length=255, label='Delivery ZIP code')
     vehicle_type = forms.CharField(max_length=255)
-    transport_type = forms.CharField(max_length=255)
-    car_info = forms.CharField(max_length=255)
+    pick_up = forms.CharField(max_length=255)
 
 
     def clean_email(self):
