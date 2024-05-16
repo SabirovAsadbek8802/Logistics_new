@@ -9110,11 +9110,13 @@ p.sticky-label {
 }
 
 .nice-select {
-  margin-bottom: 20px;
   width: 100%;
-  height: 50px;
+  height: 100%;
+  background: #f8f8f8;
+  line-height: 1;
+  padding: 25px 30px;
+  border: none;
   border-radius: 0px;
-  line-height: 50px;
 }
 
 .contact-form {

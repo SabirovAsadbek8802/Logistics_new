@@ -390,19 +390,11 @@
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <div style="display: flex; justify-content: center;">
-      <h4>WANT TO SEE HOW YOU<br> CAN SAVE UP TO 5% ON<br> YOUR QUOTE? ENTER<br> YOUR EMAIL & PHONE<br> NUMBER TO FIND OUT.</h4>
-      <img src="{% static 'assets/img/mers.png' %}" style="background: none; width: 50%; margin-left: 10px;">
+    <div class="text-center">
+      <h4>WANT TO SEE HOW YOU<br> CAN SAVE UP TO 5% ON<br> YOUR QUOTE?</h4>
+        <a href="{% url 'contact' %}" class="theme-btn" tabindex="-1">Get a quote</a>
+{#      <img src="{% static 'assets/img/mers.png' %}" style="background: none; width: 50%; margin-left: 10px;">#}
     </div>
-    <form method="post" id="modalForm" class="modal-form">
-    
-      {% csrf_token %}
-      {{ form_modal.email.label_tag }}
-      {{ form_modal.email }}
-      {{ form_modal.phone_number.label_tag }}
-      {{ form_modal.phone_number }}
-      <button type="submit">Send</button>    
-    </form>
   </div>
 </div>
 

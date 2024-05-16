@@ -99,19 +99,19 @@
                 </div>
 
                 <div class="col-12 col-lg-12">
-                    <div class="contact-form">                                                        
+                    <div class="contact-form" id="form">                                                        
                         <form method="post" class="row row-cols-2" id="contact-form">
                             {% csrf_token %}
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
-                                    {{ form.fullname.label_tag }}
-                                    {{ form.fullname }}                                        
+                                    {{ form.first_name.label_tag }}
+                                    {{ form.first_name }}                                        
                                 </div>
                             </div> 
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
-                                    {{ form.phone_number.label_tag }}
-                                    {{ form.phone_number }}                                        
+                                    {{ form.last_name.label_tag }}
+                                    {{ form.last_name }}                                        
                                 </div>
                             </div>  
                             <div class="col-md-6 col-12">
@@ -122,22 +122,88 @@
                             </div>                            
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
-                                    {{ form.vehicle_type.label_tag }}
-                                    {{ form.vehicle_type }}                                        
+                                    {{ form.phone_number.label_tag }}
+                                    {{ form.phone_number }}                                        
                                 </div>
                             </div> 
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
-                                    {{ form.delivery.label_tag }}
-                                    {{ form.delivery }}                                        
+                                    {{ form.car_type.label_tag }}
+                                    {{ form.car_type }}                                        
                                 </div>
                             </div> 
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
-                                    {{ form.pick_up.label_tag }}
-                                    {{ form.pick_up }}                                        
+                                    {{ form.car_year.label_tag }}
+                                    {{ form.car_year }}                                        
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.car_make.label_tag }}
+                                    {{ form.car_model }}                                        
                                 </div>
                             </div> 
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.car_run.label_tag }}
+                                    {{ form.car_run }}                                        
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.type_of_carrier.label_tag }}
+                                    {{ form.type_of_carrier }}                                        
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.origin_city.label_tag }}
+                                    {{ form.origin_city }}                                        
+                                </div>
+                            </div> 
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.origin_state.label_tag }}
+                                    {{ form.origin_state }}                                        
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.origin_zip.label_tag }}
+                                    {{ form.origin_zip }}                                        
+                                </div>
+                            </div> 
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.destination_city.label_tag }}
+                                    {{ form.destination_city }}                                        
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.destination_state.label_tag }}
+                                    {{ form.destination_state }}                                        
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.destination_zip.label_tag }}
+                                    {{ form.destination_zip }}                                        
+                                </div>
+                            </div> 
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.proposed_ship_date.label_tag }}
+                                    {{ form.proposed_ship_date }}                                        
+                                </div>
+                            </div>
+                            <div class="col col-12">
+                                <div class="single-personal-info">
+                                    {{ form.comment.label_tag }}
+                                    {{ form.comment }}                                        
+                                </div>
+                            </div>
                             <div class="col-md-12 col-12 text-center">
                                 <input class="submit-btn" type="submit" value="Get A Quote">
                             </div>                                      
