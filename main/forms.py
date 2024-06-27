@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator, EmailValidator
 from django.forms import CharField
+import datetime
 
 
 class ModalForm(forms.Form):
@@ -35,15 +36,21 @@ class ContactForm(forms.Form):
         ('Driveway', 'Driveway'),
         ('Enclosed', 'Enclosed'),
     ]
+
+    current_year = datetime.datetime.now().year
+    start_year = 2011
+    car_year_choices = [(str(year), str(year)) for year in range(start_year, current_year + 1)]
+
     email = forms.EmailField(label="Email address")
     phone_number = forms.CharField(max_length=20, label="Phone number")
     first_name = forms.CharField(max_length=255, label="First Name")
     last_name = forms.CharField(max_length=255, label="Last Name")
-    car_type = forms.CharField(label="Type")
-    car_year = forms.CharField(max_length=255, label="Year")
+    car_type = forms.ChoiceField(label="Type", choices=car_types, widget=forms.Select(attrs={'class': 'nice-select'}))
+    car_year = forms.ChoiceField(label="Year", choices=car_year_choices, widget=forms.Select(attrs={'class': 'nice-select'}))
     car_make = forms.CharField(max_length=255, label="Make")
     car_model = forms.CharField(max_length=255, label="Model")
-    car_run = forms.CharField(max_length=255, label="Running Condition")
+    car_run = forms.ChoiceField(label="Running Condition", choices=car_run_choices,
+                                widget=forms.Select(attrs={'class': 'nice-select'}))
     type_of_carrier = forms.CharField(max_length=255, label="Type of Carrier")
     origin_city = forms.CharField(max_length=255, label="Origin City")
     origin_state = forms.CharField(max_length=255, label="Origin State")
@@ -52,7 +59,11 @@ class ContactForm(forms.Form):
     destination_state = forms.CharField(max_length=255, label="Destination State")
     destination_zip = forms.CharField(max_length=255, label="Destination Zip")
     comment = forms.CharField(max_length=255, label="Comment", widget=forms.Textarea())
-    proposed_ship_date = forms.CharField(label="Proposed Ship Date")
+    proposed_ship_date = forms.DateField(
+        label="Proposed Ship Date",
+        widget=forms.DateInput(format="%m-%d-%Y", attrs={'type': 'date'}),
+        input_formats=['%m-%d-%Y']
+    )
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
