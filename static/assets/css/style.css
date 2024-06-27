@@ -9111,7 +9111,7 @@ p.sticky-label {
 
 .select {
   width: 100%;
-  height: 100%;
+  height: 70px;
   background: #f8f8f8;
   line-height: 1;
   padding: 25px 30px;
