@@ -51,7 +51,7 @@ class ContactForm(forms.Form):
     car_make = forms.CharField(max_length=255, label="Make")
     car_model = forms.CharField(max_length=255, label="Model")
     car_run = forms.CharField(max_length=255, label="Running Condition")
-    type_of_carrier = forms.ChoiceField(max_length=255, label="Type of Carrier", choices=car_run_choices,
+    type_of_carrier = forms.ChoiceField(label="Type of Carrier", choices=car_run_choices,
                                         widget=forms.Select(attrs={'class': 'nice-select'}))
     origin_city = forms.CharField(max_length=255, label="Origin City")
     origin_state = forms.CharField(max_length=255, label="Origin State")
