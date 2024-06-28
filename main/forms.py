@@ -33,7 +33,7 @@ class ContactForm(forms.Form):
     ]
     car_run_choices = [
         ('Open', 'Open'),
-        ('Driveway', 'Driveway'),
+        ('Drive away', 'Drive away'),
         ('Enclosed', 'Enclosed'),
     ]
 
@@ -46,12 +46,13 @@ class ContactForm(forms.Form):
     first_name = forms.CharField(max_length=255, label="First Name")
     last_name = forms.CharField(max_length=255, label="Last Name")
     car_type = forms.ChoiceField(label="Type", choices=car_types, widget=forms.Select(attrs={'class': 'nice-select'}))
-    car_year = forms.ChoiceField(label="Year", choices=car_year_choices, widget=forms.Select(attrs={'class': 'nice-select'}))
+    car_year = forms.ChoiceField(label="Year", choices=car_year_choices,
+                                 widget=forms.Select(attrs={'class': 'nice-select'}))
     car_make = forms.CharField(max_length=255, label="Make")
     car_model = forms.CharField(max_length=255, label="Model")
-    car_run = forms.ChoiceField(label="Running Condition", choices=car_run_choices,
-                                widget=forms.Select(attrs={'class': 'nice-select'}))
-    type_of_carrier = forms.CharField(max_length=255, label="Type of Carrier")
+    car_run = forms.CharField(max_length=255, label="Running Condition")
+    type_of_carrier = forms.ChoiceField(max_length=255, label="Type of Carrier", choices=car_run_choices,
+                                        widget=forms.Select(attrs={'class': 'nice-select'}))
     origin_city = forms.CharField(max_length=255, label="Origin City")
     origin_state = forms.CharField(max_length=255, label="Origin State")
     origin_zip = forms.CharField(max_length=255, label="Origin Zip")
