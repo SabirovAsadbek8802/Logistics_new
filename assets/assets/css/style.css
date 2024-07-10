@@ -9110,10 +9110,13 @@ p.sticky-label {
 }
 
 .nice-select {
-  width: 100%;
-  border: none;
-  background: #f8f8f8;
-  padding: 25px 30px;
+  width: 100% !important;
+  height: 70px !important;
+  background: #f8f8f8 !important;
+  line-height: 1 !important;
+  padding: 25px 30px !important;
+  border: none !important;
+  border-radius: 0px !important;
 }
 
 .contact-form {
@@ -9138,12 +9141,6 @@ p.sticky-label {
   padding: 25px 30px;
   border: 0px;
 }
-.contact-form select {
-  background: #f8f8f8;
-  padding: 25px 30px;
-  height: 500px;
-}
-
 
 @media (max-width: 585px) {
   .contact-form input,
@@ -9538,3 +9535,4 @@ footer .footer-bottom .social-links a:last-of-type {
   color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
+

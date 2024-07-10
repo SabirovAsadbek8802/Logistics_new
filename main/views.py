@@ -49,58 +49,58 @@ class ContactView(View):
         return render(request, self.template_name, context=self.context)
 
     def post(self, request):
-        email = request.POST.get('email', None)
-        phone_number = request.POST.get('phone_number', None)
-        first_name = request.POST.get('first_name', None)
-        last_name = request.POST.get('last_name', None)
-        car_type = request.POST.get('car_type', None)
-        car_year = request.POST.get('car_year', None)
-        car_make = request.POST.get('car_make', None)
-        car_model = request.POST.get('car_model', None)
-        car_run = request.POST.get('car_run', None)
-        type_of_carrier = request.POST.get('type_of_carrier', None)
-        origin_city = request.POST.get('origin_city', None)
-        origin_state = request.POST.get('origin_state', None)
-        origin_zip = request.POST.get('origin_zip', None)
-        destination_city = request.POST.get('destination_city', None)
-        destination_state = request.POST.get('destination_state', None)
-        destination_zip = request.POST.get('destination_zip', None)
-        comment = request.POST.get('comment', None)
-        proposed_ship_date = request.POST.get('proposed_ship_date', None)
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            phone_number = form.cleaned_data['phone_number']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            car_type = form.cleaned_data['car_type']
+            car_year = form.cleaned_data['car_year']
+            car_make = form.cleaned_data['car_make']
+            car_model = form.cleaned_data['car_model']
+            car_run = form.cleaned_data['car_run']
+            type_of_carrier = form.cleaned_data['type_of_carrier']
+            origin_city = form.cleaned_data['origin_city']
+            origin_state = form.cleaned_data['origin_state']
+            origin_zip = form.cleaned_data['origin_zip']
+            destination_city = form.cleaned_data['destination_city']
+            destination_state = form.cleaned_data['destination_state']
+            destination_zip = form.cleaned_data['destination_zip']
+            comment = form.cleaned_data['comment']
+            proposed_ship_date = form.cleaned_data['proposed_ship_date']
 
-        # Create the subject and message for the user
-        fullname = f'{first_name} {last_name}'
-        subject = 'Thank you for contacting us!'
-        message = f'Hi {fullname},\n\nThank you for contacting us. We have received your inquiry and will get back to you shortly.'
-        from_email = settings.EMAIL_HOST_USER
-        recipient_list = [email]
+            fullname = f'{first_name} {last_name}'
+            subject = 'Thank you for contacting us!'
+            message = f'Hi {fullname},\n\nThank you for contacting us. We have received your inquiry and will get back to you shortly.'
+            from_email = settings.EMAIL_HOST_USER
+            recipient_list = [email]
 
-        # Send the email to the user
-        send_mail(subject, message, from_email, recipient_list)
-        print("mail sent 1")
-        admin_subject = 'New Inquiry Received'
-        admin_message = (
-            f'New inquiry received from {fullname}.\n'
-            f'Email: {email}\n'
-            f'Phone: {phone_number}\n'
-            f'Car Type: {car_type}\n'
-            f'Car Year: {car_year}\n'
-            f'Car Make: {car_make}\n'
-            f'Car Model: {car_model}\n'
-            f'Running Condition: {car_run}\n'
-            f'Type of Carrier: {type_of_carrier}\n'
-            f'Origin: {origin_city}, {origin_state} {origin_zip}\n'
-            f'Destination: {destination_city}, {destination_state} {destination_zip}\n'
-            f'Proposed Ship Date: {proposed_ship_date}\n'
-            f'Comment: {comment}'
-        )
+            send_mail(subject, message, from_email, recipient_list)
 
-        # Send the email to the admin
-        send_mail(admin_subject, admin_message, from_email, [
-            "support@weproautotransport.com",
-            "hi@moorfo.uz",
-            "leads@wpa.msgplane.com"
-        ])
-        print("mail sent")
+            admin_subject = 'New Inquiry Received'
+            admin_message = (
+                f'New inquiry received from {fullname}.\n'
+                f'Email: {email}\n'
+                f'Phone: {phone_number}\n'
+                f'Car Type: {car_type}\n'
+                f'Car Year: {car_year}\n'
+                f'Car Make: {car_make}\n'
+                f'Car Model: {car_model}\n'
+                f'Running Condition: {car_run}\n'
+                f'Type of Carrier: {type_of_carrier}\n'
+                f'Origin: {origin_city}, {origin_state} {origin_zip}\n'
+                f'Destination: {destination_city}, {destination_state} {destination_zip}\n'
+                f'Proposed Ship Date: {proposed_ship_date}\n'
+                f'Comment: {comment}'
+            )
+            send_mail(admin_subject, admin_message, from_email, [
+                "support@weproautotransport.com",
+                "hi@moorfo.uz",
+                "leads@wpa.msgplane.com"
+            ])
+            print("mail sent")
+            return redirect('contact')
+        return render(request, self.template_name, context={'form': form})
 
-        return redirect('contact')
+

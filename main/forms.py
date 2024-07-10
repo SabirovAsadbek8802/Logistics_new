@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator, EmailValidator
 from django.forms import CharField
+from captcha.fields import CaptchaField
 import datetime
 
 
@@ -63,27 +64,5 @@ class ContactForm(forms.Form):
     proposed_ship_date = forms.DateField(
         label="Proposed Ship Date",
         widget=forms.DateInput(format="%m-%d-%Y", attrs={'type': 'date'}),
-        input_formats=['%m-%d-%Y']
     )
-
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if not email.endswith('@gmail.com'):
-            raise ValidationError("Email must end with @gmail.com")
-        if len(email) > 64:
-            raise ValidationError("Email must be 64 characters or less!")
-        elif len(email) < 16:
-            raise ValidationError("Email can not be less than 6 characters!")
-        return email
-
-# class FooterForm(forms.Form):
-#     call_number = forms.CharField(max_length=20)   
-#     def clean_phone_number(self):
-#         phone_number = self.cleaned_data.get('phone_number')
-#         if not phone_number.startswith('+'):
-#             raise ValidationError("Phone number must start with +")
-#         if len(phone_number) > 32:
-#             raise ValidationError("Phone number must be 32 characters or less!")
-#         elif len(phone_number) < 6:
-#             raise ValidationError("Phone number can not be less than 6 characters!")
-#         return phone_number
+    captcha = CaptchaField(label="Type the characters you see in the picture above.")

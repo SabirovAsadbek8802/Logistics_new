@@ -3,7 +3,8 @@
 
 {% block content %}
 
-    <div class="page-banner-wrap text-center bg-cover" style="background-image: url('{% static 'assets/img/page-banner.jpg'%}')">
+    <div class="page-banner-wrap text-center bg-cover"
+         style="background-image: url('{% static 'assets/img/page-banner.jpg' %}')">
         <div class="container">
             <div class="page-heading text-white">
                 <h1>contact us</h1>
@@ -14,8 +15,8 @@
         <div class="container">
             <nav>
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">contact Us</li>
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">contact Us</li>
                 </ol>
             </nav>
         </div>
@@ -35,7 +36,7 @@
                                 <span>Send an email any time</span>
                             </div>
                         </div>
-                        <div class="bottom-part">                            
+                        <div class="bottom-part">
                             <div class="info">
                                 <p>support@weproautotransport.com</p>
                             </div>
@@ -56,7 +57,7 @@
                                 <span>Call us asap any time</span>
                             </div>
                         </div>
-                        <div class="bottom-part">                            
+                        <div class="bottom-part">
                             <div class="info">
                                 <p>+1 (425) 337 6424</p>
                             </div>
@@ -77,7 +78,7 @@
                                 <span>Sent mail asap any time</span>
                             </div>
                         </div>
-                        <div class="bottom-part">                            
+                        <div class="bottom-part">
                             <div class="info">
                                 <p>7244 Castor Avec Philadelphia, PA</p>
                             </div>
@@ -99,114 +100,151 @@
                 </div>
 
                 <div class="col-12 col-lg-12">
-                    <div class="contact-form" id="form">                                                        
+                    <div class="contact-form" id="form">
                         <form method="post" class="row row-cols-2" id="contact-form">
                             {% csrf_token %}
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.first_name.label_tag }}
-                                    {{ form.first_name }}                                        
+                                    {{ form.first_name }}
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.last_name.label_tag }}
-                                    {{ form.last_name }}                                        
+                                    {{ form.last_name }}
                                 </div>
-                            </div>  
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.email.label_tag }}
-                                    {{ form.email }}                                        
+                                    {{ form.email }}
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.phone_number.label_tag }}
-                                    {{ form.phone_number }}                                        
+                                    {{ form.phone_number }}
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.car_type.label_tag }}
-                                    {{ form.car_type }}                                        
+                                    {{ form.car_type }}
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.car_year.label_tag }}
-                                    {{ form.car_year }}                                        
+                                    {{ form.car_year }}
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.car_make.label_tag }}
-                                    {{ form.car_model }}                                        
+                                    {{ form.car_make }}
                                 </div>
-                            </div> 
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    {{ form.car_model.label_tag }}
+                                    {{ form.car_model }}
+                                </div>
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.car_run.label_tag }}
-                                    {{ form.car_run }}                                        
+                                    {{ form.car_run }}
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.type_of_carrier.label_tag }}
-                                    {{ form.type_of_carrier }}                                        
+                                    {{ form.type_of_carrier }}
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.origin_city.label_tag }}
-                                    {{ form.origin_city }}                                        
+                                    {{ form.origin_city }}
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.origin_state.label_tag }}
-                                    {{ form.origin_state }}                                        
+                                    {{ form.origin_state }}
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.origin_zip.label_tag }}
-                                    {{ form.origin_zip }}                                        
+                                    {{ form.origin_zip }}
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.destination_city.label_tag }}
-                                    {{ form.destination_city }}                                        
+                                    {{ form.destination_city }}
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.destination_state.label_tag }}
-                                    {{ form.destination_state }}                                        
+                                    {{ form.destination_state }}
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.destination_zip.label_tag }}
-                                    {{ form.destination_zip }}                                        
+                                    {{ form.destination_zip }}
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-md-6 col-12">
                                 <div class="single-personal-info">
                                     {{ form.proposed_ship_date.label_tag }}
-                                    {{ form.proposed_ship_date }}                                        
+                                    {{ form.proposed_ship_date }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="single-personal-info">
+                                    <style>
+                                        .captcha {
+                                            width: 90px;
+                                            margin-bottom: 10px;
+                                            border: 1px solid #ccc;
+                                        }
+                                    </style>
+                                    {{ form.captcha.label_tag }}
+                                    {{ form.captcha }}
                                 </div>
                             </div>
                             <div class="col col-12">
                                 <div class="single-personal-info">
                                     {{ form.comment.label_tag }}
-                                    {{ form.comment }}                                        
+                                    {{ form.comment }}
                                 </div>
                             </div>
-                            <div class="col-md-12 col-12 text-center">
+                            <!-- form message -->
+                            <div class="col-md-12 mt-3 col-12 text-center">
+                                {% if form.errors %}
+                                    {% for field, error in form.errors.items %}
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ field }}: {{ error }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ message.tags }}" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-12 mt-3 col-12 text-center">
                                 <input class="submit-btn" type="submit" value="Get A Quote">
-                            </div>                                      
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -217,13 +255,13 @@
     <section class="our-branch-wrapper section-padding pt-0">
         <div class="container">
             <div class="col-lg-8 offset-lg-2 text-center col-12">
-                
+
             </div>
             <div class="row">
-                
+
             </div>
         </div>
-        
+
     </section>
 
 {% endblock content %}
